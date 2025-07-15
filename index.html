@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learning AI - Home</title>
+  <link rel="stylesheet" href="css/Learning_AI_Styles.css" />
+  <script defer src="Learning_AI_Functions.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.0.2/dist/tesseract.min.js"></script>
+</head>
+<body ondragover="handleDragOver(event)" ondrop="handleDrop(event)">
+  <div class="tab-bar">
+    <button onclick="navigateTo('index.html')" class="tab active">AI</button>
+    <button onclick="navigateTo('Learning_AI_Notes.html')" class="tab">Notes</button>
+    <button onclick="navigateTo('Learning_AI_Questions.html')" class="tab">Questions</button>
+    <button onclick="navigateTo('Learning_AI_Settings.html')" class="tab">Settings</button>
+  </div>
+
+  <div class="main-content center-content">
+    <h1>Welcome to Learning AI</h1>
+    <p class="subtitle">Ask me anything below</p>
+
+    <textarea
+      id="noteInput"
+      placeholder="Type your prompt here or drop a file/image..."
+    ></textarea>
+
+    <div class="input-actions">
+      <label class="file-button">
+        Upload File
+        <input type="file" onchange="handleFileSelect(event)" hidden />
+      </label>
+
+      <label class="file-button">
+        Upload/Tap Photo
+        <input type="file" accept="image/*" capture="environment" onchange="handleImageInput(event)" hidden />
+      </label>
+
+      <button onclick="simplifyNotes()" class="action-button">Submit</button>
+    </div>
+
+    <div id="simplifiedNotesContainer" class="output-container" style="display: none;">
+      <h3>AI Response:</h3>
+      <div id="simplifiedNotes"></div>
+    </div>
+  </div>
+</body>
+</html>

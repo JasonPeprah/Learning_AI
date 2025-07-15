@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learning AI - Settings</title>
+  <link rel="stylesheet" href="css/Learning_AI_Styles.css" />
+  <script defer src="Learning_AI_Functions.js"></script>
+</head>
+<body>
+  <div class="tab-bar">
+    <button onclick="navigateTo('index.html')" class="tab">AI</button>
+    <button onclick="navigateTo('Learning_AI_Notes.html')" class="tab">Notes</button>
+    <button onclick="navigateTo('Learning_AI_Questions.html')" class="tab">Questions</button>
+    <button onclick="navigateTo('Learning_AI_Settings.html')" class="tab active">Settings</button>
+  </div>
+
+  <div class="main-content center-content">
+    <h1>App Settings</h1>
+
+    <div class="settings-section">
+      <label for="primaryColor">Primary Color:</label>
+      <input type="color" id="primaryColor" onchange="updatePrimaryColor(this.value)">
+    </div>
+
+    <div class="settings-section">
+      <label for="secondaryColor">Secondary Color:</label>
+      <input type="color" id="secondaryColor" onchange="updateSecondaryColor(this.value)">
+    </div>
+
+    <div class="settings-section">
+      <button class="action-button" onclick="showHistory()">View History</button>
+    </div>
+
+    <div id="historyContainer" class="output-container" style="display: none;"></div>
+  </div>
+</body>
+</html>
